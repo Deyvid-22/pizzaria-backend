@@ -31,9 +31,9 @@ export async function isAuthenticated(
 
   try{
       const { sub } = verify(token,process.env.JWT_SECRET) as payLoad;
-
+     //recuperar o id do token e coloca de uma variavel user_id dentro do req
       req.user_id = sub;
-      
+
       return next();
 
   }catch(err){

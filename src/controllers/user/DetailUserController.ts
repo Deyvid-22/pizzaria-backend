@@ -7,9 +7,11 @@ class DetailUserController {
         //esse user_id vem do @types que foi definido
         const user_id = req.user_id
 
+        console.log("id do user_id", user_id)
+
         const detailUserService = new DetailUserService();
 
-        const user = await detailUserService.execute()
+        const user = await detailUserService.execute(user_id)
 
         return res.json(user)
     }
