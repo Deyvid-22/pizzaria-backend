@@ -6,7 +6,7 @@ interface payLoad{
 
 // vai ser usado para todas rotas que o usuario tem que ser logado
 
-export async function isAuthenticated(
+export function isAuthenticated(
     req:Request,
     res:Response,
     next:NextFunction
