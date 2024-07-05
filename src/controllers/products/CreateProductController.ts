@@ -20,9 +20,6 @@ class CreateProductController{
              const product = await createProductService.execute({name, price, description,banner, category_id})
      
              return res.json(product);
-
-
-
          }
 
 
