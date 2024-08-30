@@ -1,20 +1,18 @@
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 import { ListByCategoryService } from "../../service/products/ListByCategoryService";
 
-class ListByCategorycontroller{
-    async handle(req:Request,res:Response){
+class ListByCategorycontroller {
+  async handle(req: Request, res: Response) {
+    const category_id = req.query.category_id as string;
 
-        const category_id = req.query.category_id as string
+    const lisByCategpry = new ListByCategoryService();
 
-        const lisByCategpry = new ListByCategoryService();
+    const products = await lisByCategpry.execute({
+      category_id,
+    });
 
-        const product = await lisByCategpry.execute({
-            category_id
-        });
-
-
-        return res.json(product)
-    }
+    return res.json(products);
+  }
 }
 
-export {ListByCategorycontroller}
+export { ListByCategorycontroller };
